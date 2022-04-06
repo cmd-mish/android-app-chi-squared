@@ -7,12 +7,12 @@
     tools:context=".MainActivity">
 
     <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="76dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="373dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
@@ -35,6 +35,7 @@
 
         </TableRow>
 
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -43,12 +44,13 @@
                 android:id="@+id/textViewRow1"
                 android:layout_width="match_parent"
                 android:layout_marginBottom="4dp"
+                android:rotation="-90"
                 android:text="textViewRow1" />
 
             <Button
                 android:id="@+id/button1"
                 android:layout_width="100dp"
-                android:layout_height="80dp"
+                android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
                 android:onClick="buttonClick"
                 android:text="0" />
@@ -56,27 +58,27 @@
             <Button
                 android:id="@+id/button2"
                 android:layout_width="100dp"
-                android:layout_height="80dp"
+                android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
                 android:onClick="buttonClick"
                 android:text="0" />
         </TableRow>
 
-
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="380dp"
+            android:layout_height="143dp">
 
             <TextView
                 android:id="@+id/textViewRow2"
                 android:layout_width="match_parent"
                 android:layout_marginBottom="4dp"
+                android:rotation="-90"
                 android:text="textViewRow2" />
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="100dp"
-                android:layout_height="80dp"
+                android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
                 android:onClick="buttonClick"
                 android:text="0" />
@@ -84,7 +86,7 @@
             <Button
                 android:id="@+id/button4"
                 android:layout_width="100dp"
-                android:layout_height="80dp"
+                android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
                 android:onClick="buttonClick"
                 android:text="0" />

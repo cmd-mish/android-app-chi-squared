@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
     Button btn1, btn2, btn3, btn4;
     // Deklarera 4 heltalsvariabler för knapparnas värden
     int val1, val2, val3, val4;
+    // Deklarera etiketter för rader och kolumner
+    TextView textViewCol1, textViewCol2, textViewRow1, textViewRow2;
 
 
     @Override
@@ -25,7 +28,17 @@ public class MainActivity extends AppCompatActivity {
         btn3 = findViewById(R.id.button3);
         btn4 = findViewById(R.id.button4);
 
+        // Kopplar etiketter med textfälterna
+        textViewCol1 = findViewById(R.id.textViewCol1);
+        textViewCol2 = findViewById(R.id.textViewCol2);
+        textViewRow1 = findViewById(R.id.textViewRow1);
+        textViewRow2 = findViewById(R.id.textViewRow2);
 
+        // Ställer upp etiketter
+        textViewCol1.setText("Ny design");
+        textViewCol2.setText("Gammal design");
+        textViewRow1.setText("Köpte något");
+        textViewRow2.setText("Köpte inte");
     }
 
     /**
@@ -60,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Mata in värdena i Chi-2-uträkningen och ta emot resultatet
         // i en Double-variabel
-        double chi2 = Significance.chiSquared(val1, val2, val3, val4);
+        double chi2 = Significance.chiSquared(520, 900, 700, 1400);
 
         // Mata in chi2-resultatet i getP() och ta emot p-värdet
         double pValue = Significance.getP(chi2);
