@@ -14,7 +14,10 @@ public class MainActivity extends AppCompatActivity {
     // Deklarera 4 heltalsvariabler för knapparnas värden
     int val1, val2, val3, val4;
     // Deklarera etiketter för rader och kolumner
-    TextView textViewCol1, textViewCol2, textViewRow1, textViewRow2;
+    TextView textViewCol1, textViewCol2, textViewRow1, textViewRow2,
+            textViewPercentageLabel, textViewPercentageCol1, textViewPercentageCol2;
+    // Delrarera textView dit uträkningen presenteras
+    TextView dataOutput;
 
 
     @Override
@@ -33,12 +36,18 @@ public class MainActivity extends AppCompatActivity {
         textViewCol2 = findViewById(R.id.textViewCol2);
         textViewRow1 = findViewById(R.id.textViewRow1);
         textViewRow2 = findViewById(R.id.textViewRow2);
+        textViewPercentageLabel = findViewById(R.id.textViewPercentageLabel);
+        textViewPercentageCol1 = findViewById(R.id.textViewPercentageCol1);
+        textViewPercentageCol2 = findViewById(R.id.textViewPercentageCol2);
+
+        dataOutput = findViewById(R.id.textViewDataOutput);
 
         // Ställer upp etiketter
         textViewCol1.setText("Ny design");
         textViewCol2.setText("Gammal design");
         textViewRow1.setText("Köpte något");
         textViewRow2.setText("Köpte inte");
+        textViewPercentageLabel.setText(textViewRow1.getText());
     }
 
     /**
@@ -73,10 +82,17 @@ public class MainActivity extends AppCompatActivity {
 
         // Mata in värdena i Chi-2-uträkningen och ta emot resultatet
         // i en Double-variabel
-        double chi2 = Significance.chiSquared(520, 900, 700, 1400);
+        double chi2 = Significance.chiSquared(val1, val2, val3, val4);
+        System.out.println(chi2);
 
         // Mata in chi2-resultatet i getP() och ta emot p-värdet
         double pValue = Significance.getP(chi2);
+
+        String output = String.format("Chi-2 resultat: %.2f" +
+                        "\n\np-värde %.3f",
+                        chi2, pValue);
+
+        dataOutput.setText(output);
 
         /**
          *  - Visa chi2 och pValue åt användaren på ett bra och tydligt sätt!

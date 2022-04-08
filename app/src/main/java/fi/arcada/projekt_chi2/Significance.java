@@ -6,6 +6,18 @@ public class Significance {
      * Metod som räknar ut Chi-två på basis av fyra observerade värden (o1 - o4).
      */
     public static double chiSquared(int o1, int o2, int o3, int o4) {
+        /**
+         *  Implementera din egen Chi-två-uträkning här!
+         *
+         *  1.  Räkna de förväntade värdena, spara resultaten i e1 - e4
+         *
+         *  2.  Använd de observerade värdena (o1 - o4) och de förväntade
+         *      värdena (e1 - e4) för att räkna ut Chi-två enligt formeln.
+         *
+         *  3.  returnera resultatet
+         *      (använd det sedan för att få p-värdet via getP()
+         *
+         * */
 
         // Deklarerar och räknar ut totala värden i rader och kolumner
         double totalRow1, totalRow2, totalCol1, totalCol2, totalGrand;
@@ -34,23 +46,6 @@ public class Significance {
         comp3 = Math.pow(o3 - e3, 2) / e3;
         comp4 = Math.pow(o4 - e4, 2) / e4;
         chi2 = comp1 + comp2 + comp3 + comp4;
-
-        System.out.println("Chi2: " + chi2);
-
-        System.out.println("P-värde: " + getP(chi2));
-
-        /**
-         *  Implementera din egen Chi-två-uträkning här!
-         *
-         *  1.  Räkna de förväntade värdena, spara resultaten i e1 - e4
-         *
-         *  2.  Använd de observerade värdena (o1 - o4) och de förväntade
-         *      värdena (e1 - e4) för att räkna ut Chi-två enligt formeln.
-         *
-         *  3.  returnera resultatet
-         *      (använd det sedan för att få p-värdet via getP()
-         *
-         * */
 
         return chi2;
     }
