@@ -7,10 +7,11 @@
     tools:context=".MainActivity">
 
     <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="373dp"
-        android:layout_height="250dp"
+        android:id="@+id/tableLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:background="#FFEB3B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -21,23 +22,33 @@
 
             <TextView
                 android:id="@+id/textViewPercentageLabel"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="match_parent"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/textViewPercentageCol1"
-                android:layout_width="wrap_content"
+                android:layout_width="123dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
                 android:text="TextView" />
 
             <TextView
                 android:id="@+id/textViewPercentageCol2"
-                android:layout_width="wrap_content"
+                android:layout_width="126dp"
                 android:layout_height="match_parent"
                 android:text="TextView" />
         </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="373dp"
+        android:layout_height="230dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
@@ -67,7 +78,7 @@
 
             <TextView
                 android:id="@+id/textViewRow1"
-                android:layout_width="match_parent"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
                 android:rotation="-90"
@@ -75,7 +86,7 @@
 
             <Button
                 android:id="@+id/button1"
-                android:layout_width="100dp"
+                android:layout_width="120dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
                 android:onClick="buttonClick"
@@ -83,7 +94,7 @@
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="100dp"
+                android:layout_width="120dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
                 android:onClick="buttonClick"
@@ -96,7 +107,7 @@
 
             <TextView
                 android:id="@+id/textViewRow2"
-                android:layout_width="match_parent"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
                 android:rotation="-90"
@@ -104,7 +115,7 @@
 
             <Button
                 android:id="@+id/button3"
-                android:layout_width="100dp"
+                android:layout_width="120dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
                 android:onClick="buttonClick"
@@ -112,7 +123,7 @@
 
             <Button
                 android:id="@+id/button4"
-                android:layout_width="100dp"
+                android:layout_width="120dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
                 android:onClick="buttonClick"
@@ -128,6 +139,38 @@
         android:layout_marginTop="100dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewDataOutputResult"
+        android:layout_width="273dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDataOutput" />
+
+    <Button
+        android:id="@+id/buttonSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="openSettings"
+        android:text="Inställningar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonSettings2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="resetValues"
+        android:text="Börja om"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

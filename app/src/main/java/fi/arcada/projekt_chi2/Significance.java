@@ -1,5 +1,7 @@
 package fi.arcada.projekt_chi2;
 
+import java.lang.reflect.Array;
+
 public class Significance {
 
     /**
@@ -36,8 +38,6 @@ public class Significance {
         e3 = totalRow2 * totalCol1 / totalGrand;
         e4 = totalRow2 * totalCol2 / totalGrand;
 
-        System.out.println(e1 + " " + e2 + " " + e3 + " " + e4);
-
         // komponenter av Chi2 summan räknas enligt formeln
         double comp1, comp2, comp3, comp4, chi2;
 
@@ -61,7 +61,7 @@ public class Significance {
      */
     public static double getP(double chiResult) {
 
-        double p = 0.99;
+        double p = 1.00;
 
         if (chiResult >= 1.642) p = 0.2;
         if (chiResult >= 2.706) p = 0.1;
@@ -76,4 +76,17 @@ public class Significance {
 
     }
 
+    public static double getPercentage(int value1, int value2) {
+        double dValue1 = Double.valueOf(value1);
+        double dValue2 = Double.valueOf(value2);
+        return  dValue1 / (dValue1 +  dValue2) * 100;
+    };
+
+    public static String getExplanation(double p, double significance) {
+        if(p < significance) {
+            return "Resultatet är signifikant. Det betyder att det är beroende med minst " + (100 - p * 100) + "% sannolikhet.";
+        } else {
+            return "Resultatet är inte signifikant och oberoende med mist " + p * 100  + "% sannolikhet.";
+        }
+    }
 }
