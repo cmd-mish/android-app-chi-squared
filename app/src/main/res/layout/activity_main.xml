@@ -7,12 +7,53 @@
     tools:context=".MainActivity">
 
     <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="76dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:id="@+id/tableLayout2"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="#FFEB3B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/textViewPercentageLabel"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewPercentageCol1"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewPercentageCol2"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="373dp"
+        android:layout_height="230dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
@@ -24,16 +65,19 @@
                 android:layout_column="1"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="4dp"
-                android:text="textViewCol1" />
+                android:text="textViewCol1"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/textViewCol2"
                 android:layout_width="match_parent"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="4dp"
-                android:text="textViewCol2" />
+                android:text="textViewCol2"
+                android:textAlignment="center" />
 
         </TableRow>
+
 
         <TableRow
             android:layout_width="match_parent"
@@ -41,54 +85,105 @@
 
             <TextView
                 android:id="@+id/textViewRow1"
-                android:layout_width="match_parent"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
-                android:text="textViewRow1" />
+                android:rotation="-90"
+                android:text="textViewRow1"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/button1"
-                android:layout_width="100dp"
-                android:layout_height="80dp"
+                android:layout_width="120dp"
+                android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
                 android:onClick="buttonClick"
                 android:text="0" />
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="100dp"
-                android:layout_height="80dp"
+                android:layout_width="120dp"
+                android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
                 android:onClick="buttonClick"
                 android:text="0" />
         </TableRow>
 
-
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="380dp"
+            android:layout_height="143dp">
 
             <TextView
                 android:id="@+id/textViewRow2"
-                android:layout_width="match_parent"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
-                android:text="textViewRow2" />
+                android:rotation="-90"
+                android:text="textViewRow2"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/button3"
-                android:layout_width="100dp"
-                android:layout_height="80dp"
+                android:layout_width="120dp"
+                android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
                 android:onClick="buttonClick"
                 android:text="0" />
 
             <Button
                 android:id="@+id/button4"
-                android:layout_width="100dp"
-                android:layout_height="80dp"
+                android:layout_width="120dp"
+                android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
                 android:onClick="buttonClick"
                 android:text="0" />
         </TableRow>
 
     </TableLayout>
+
+    <TextView
+        android:id="@+id/textViewDataOutput"
+        android:layout_width="358dp"
+        android:layout_height="121dp"
+        android:layout_marginTop="76dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewDataOutputResult"
+        android:layout_width="358dp"
+        android:layout_height="119dp"
+        android:layout_marginTop="24dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDataOutput" />
+
+    <Button
+        android:id="@+id/buttonSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="openSettings"
+        android:text="Inställningar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonSettings2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="resetValues"
+        android:text="Börja om"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

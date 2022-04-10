@@ -1,15 +1,13 @@
 package fi.arcada.projekt_chi2;
 
+import java.lang.reflect.Array;
+
 public class Significance {
 
     /**
      * Metod som räknar ut Chi-två på basis av fyra observerade värden (o1 - o4).
      */
     public static double chiSquared(int o1, int o2, int o3, int o4) {
-
-        // heltalsvariabler tänkta att få de förväntade värdena
-        int e1, e2, e3, e4;
-
         /**
          *  Implementera din egen Chi-två-uträkning här!
          *
@@ -23,7 +21,33 @@ public class Significance {
          *
          * */
 
-        return 0.0;
+        // Deklarerar och räknar ut totala värden i rader och kolumner
+        double totalRow1, totalRow2, totalCol1, totalCol2, totalGrand;
+
+        totalRow1 = o1 + o2;
+        totalRow2 = o3 + o4;
+        totalCol1 = o1 + o3;
+        totalCol2 = o2 + o4;
+        totalGrand = o1 + o2 + o3 + o4;
+
+        // förväntade värdena sparas i double variabler
+        double e1, e2, e3, e4;
+
+        e1 = totalRow1 * totalCol1 / totalGrand;
+        e2 = totalRow1 * totalCol2 / totalGrand;
+        e3 = totalRow2 * totalCol1 / totalGrand;
+        e4 = totalRow2 * totalCol2 / totalGrand;
+
+        // komponenter av Chi2 summan räknas enligt formeln
+        double comp1, comp2, comp3, comp4, chi2;
+
+        comp1 = Math.pow(o1 - e1, 2) / e1;
+        comp2 = Math.pow(o2 - e2, 2) / e2;
+        comp3 = Math.pow(o3 - e3, 2) / e3;
+        comp4 = Math.pow(o4 - e4, 2) / e4;
+        chi2 = comp1 + comp2 + comp3 + comp4;
+
+        return chi2;
     }
 
 
@@ -52,4 +76,17 @@ public class Significance {
 
     }
 
+    public static double getPercentage(int value1, int value2) {
+        double dValue1 = Double.valueOf(value1);
+        double dValue2 = Double.valueOf(value2);
+        return  dValue1 / (dValue1 +  dValue2) * 100;
+    };
+
+    public static String getExplanation(double p, double a, String h0) {
+        if(p <= a) {
+            return "Resultatet är signifikant. Det är beroende med minst " + (100 - p * 100) + "% sannolikhet. Nollhypotesen \"" + h0 + "\" är inte sann.";
+        } else {
+            return "Resultatet är inte signifikant och oberoende med mist " + p * 100  + "% sannolikhet. Nollhypotesen \"" + h0 + "\" är sann.";
+        }
+    }
 }
