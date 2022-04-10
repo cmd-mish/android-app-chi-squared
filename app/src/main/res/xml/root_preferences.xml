@@ -4,17 +4,24 @@
     <PreferenceCategory app:title="Inställningar">
 
         <EditTextPreference
-            app:key="significance"
-            app:title="Signifikansnivå"
+            app:key="hypothesis"
+            app:title="Nollhypotes (H0)"
             android:selectAllOnFocus="true"
             android:singleLine="true"
             app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference
-            app:key="col1"
-            app:title="Kolumn 1"
+            app:key="significance"
+            app:title="Signifikansnivå (α)"
             android:selectAllOnFocus="true"
             android:singleLine="true"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            app:key="col1"
+            app:title="Kolumn 1"
             app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference

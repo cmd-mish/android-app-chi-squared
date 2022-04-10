@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     // Deklarera 4 heltalsvariabler för knapparnas värden
     int val1, val2, val3, val4;
     double significance;
+    String hypothesis;
     // Deklarera etiketter för rader och kolumner
     TextView textViewCol1, textViewCol2, textViewRow1, textViewRow2,
             textViewPercentageLabel, textViewPercentageCol1, textViewPercentageCol2;
@@ -112,14 +113,16 @@ public class MainActivity extends AppCompatActivity {
         // Mata in chi2-resultatet i getP() och ta emot p-värdet
         double pValue = Significance.getP(chi2);
         significance = Double.parseDouble(sharedPref.getString("significance", "0.05"));
+        hypothesis = sharedPref.getString("hypothesis", "Ingen skillnad mellan alternativen");
 
-        output = String.format("Chi-2 resultat: %.2f" +
-                        "\n\nP-värde %.3f" +
-                        "\n\nSignifikansnivå: %s",
-                        chi2, pValue, significance);
+        output = String.format("Nollhypotes (H0): %s" +
+                        "\n\nSignifikansnivå: %s" +
+                        "\n\nChi-2 resultat: %.2f" +
+                        "\n\nP-värde %.3f",
+                        hypothesis, significance, chi2, pValue);
         dataOutput.setText(output);
 
-        output = String.format("%s", Significance.getExplanation(pValue, significance));
+        output = String.format("%s", Significance.getExplanation(pValue, significance, hypothesis));
         textViewDataOutputResult.setText(output);
 
         /**
@@ -136,10 +139,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void resetValues(View view) {
-        val1 = 10;
-        val2 = 10;
-        val3 = 10;
-        val4 = 10;
+        val1 = 260;
+        val2 = 450;
+        val3 = 350;
+        val4 = 700;
         calculate();
     }
 

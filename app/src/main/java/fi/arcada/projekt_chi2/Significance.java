@@ -82,11 +82,11 @@ public class Significance {
         return  dValue1 / (dValue1 +  dValue2) * 100;
     };
 
-    public static String getExplanation(double p, double significance) {
-        if(p < significance) {
-            return "Resultatet är signifikant. Det betyder att det är beroende med minst " + (100 - p * 100) + "% sannolikhet.";
+    public static String getExplanation(double p, double a, String h0) {
+        if(p <= a) {
+            return "Resultatet är signifikant. Det är beroende med minst " + (100 - p * 100) + "% sannolikhet. Nollhypotesen \"" + h0 + "\" är inte sann.";
         } else {
-            return "Resultatet är inte signifikant och oberoende med mist " + p * 100  + "% sannolikhet.";
+            return "Resultatet är inte signifikant och oberoende med mist " + p * 100  + "% sannolikhet. Nollhypotesen \"" + h0 + "\" är sann.";
         }
     }
 }
