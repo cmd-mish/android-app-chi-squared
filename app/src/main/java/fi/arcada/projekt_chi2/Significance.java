@@ -61,7 +61,7 @@ public class Significance {
      */
     public static double getP(double chiResult) {
 
-        double p = 1.00;
+        double p = 0.99;
 
         if (chiResult >= 1.642) p = 0.2;
         if (chiResult >= 2.706) p = 0.1;

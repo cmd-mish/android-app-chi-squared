@@ -92,6 +92,17 @@ public class MainActivity extends AppCompatActivity {
      * Metod som uppdaterar layouten och räknar ut själva analysen.
      */
     public void calculate() {
+        /**
+         *  - Visa chi2 och pValue åt användaren på ett bra och tydligt sätt!
+         *
+         *  - Visa procentuella andelen jakande svar inom de olika grupperna.
+         *    T.ex. (val1 / (val1+val3) * 100) och (val2 / (val2+val4) * 100
+         *
+         *  - Analysera signifikansen genom att jämföra p-värdet
+         *    med signifikansnivån, visa reultatet åt användaren
+         *
+         */
+
         String output;
 
         // Uppdatera knapparna med de nuvarande värdena
@@ -101,10 +112,14 @@ public class MainActivity extends AppCompatActivity {
         btn4.setText(String.valueOf(val4));
 
         // Resultatet i procent
-        output = String.format("%s: %.0f %%", textViewCol1.getText(), Significance.getPercentage(val1, val3));
-        textViewPercentageCol1.setText(output);
-        output = String.format("%s: %.0f %%", textViewCol2.getText(), Significance.getPercentage(val2, val4));
-        textViewPercentageCol2.setText(output);
+        if (val1 != 0 && val3 != 0) {
+            output = String.format("%s: \n%.0f %%", textViewCol1.getText(), Significance.getPercentage(val1, val3));
+            textViewPercentageCol1.setText(output);
+        }
+        if (val2 != 0 && val4 != 0) {
+            output = String.format("%s: \n%.0f %%", textViewCol2.getText(), Significance.getPercentage(val2, val4));
+            textViewPercentageCol2.setText(output);
+        }
 
         // Mata in värdena i Chi-2-uträkningen och ta emot resultatet
         // i en Double-variabel
@@ -124,26 +139,23 @@ public class MainActivity extends AppCompatActivity {
 
         output = String.format("%s", Significance.getExplanation(pValue, significance, hypothesis));
         textViewDataOutputResult.setText(output);
-
-        /**
-         *  - Visa chi2 och pValue åt användaren på ett bra och tydligt sätt!
-         *
-         *  - Visa procentuella andelen jakande svar inom de olika grupperna.
-         *    T.ex. (val1 / (val1+val3) * 100) och (val2 / (val2+val4) * 100
-         *
-         *  - Analysera signifikansen genom att jämföra p-värdet
-         *    med signifikansnivån, visa reultatet åt användaren
-         *
-         */
-
     }
 
     public void resetValues(View view) {
-        val1 = 260;
-        val2 = 450;
-        val3 = 350;
-        val4 = 700;
-        calculate();
+        val1 = 0;
+        val2 = 0;
+        val3 = 0;
+        val4 = 0;
+
+        btn1.setText(String.valueOf(val1));
+        btn2.setText(String.valueOf(val2));
+        btn3.setText(String.valueOf(val3));
+        btn4.setText(String.valueOf(val4));
+
+        dataOutput.setText("");
+        textViewDataOutputResult.setText("");
+        textViewPercentageCol1.setText("");
+        textViewPercentageCol2.setText("");
     }
 
 
